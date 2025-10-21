@@ -1,0 +1,18 @@
+a{
+    text-align: center;
+    display: block;
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+    background: #e5383b;
+    padding: 25px 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+a:hover{
+    background: #ba181b;
+    font-size: 40px;
+    background-image: url('images/badass.gif');
+}
+

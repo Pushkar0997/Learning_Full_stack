@@ -1,0 +1,38 @@
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+span {
+    margin:20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: black;
+}
+
+#add-btn {
+    background-color: #28a745;
+}
+#subtract-btn {
+    background-color: #dc3545;
+}
+#multiply-btn {
+    background-color: #007bff;
+}
+#divide-btn {
+    background-color: #ffc107;
+}
+
+span{
+    border-bottom:4px black;
+}

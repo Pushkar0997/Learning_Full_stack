@@ -1,0 +1,73 @@
+:root{
+  --theme-color: #2a9d8f;
+  --bg: linear-gradient(180deg,#ffffff,#f7fafc);
+  --text: #111827;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:24px;
+  background: var(--bg) fixed no-repeat;
+  color:var(--text);
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* typography variables applied */
+body{font-family:var(--font-family, system-ui, -apple-system, 'Segoe UI', Roboto, Arial);letter-spacing:var(--letter-spacing, 0)}
+h1,h2,h3{letter-spacing:var(--letter-spacing, 0);text-transform:var(--heading-transform, none);font-weight:var(--heading-weight, 700)}
+
+img{border-radius:8px;display:block;margin:8px 0}
+
+#profile-summary{
+  border:1px solid rgba(0,0,0,0.08);
+  padding:14px 18px;
+  margin:10px 0 20px 0;
+  background:linear-gradient(180deg, rgba(42,157,143,0.06), transparent);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  max-width:720px;
+}
+
+/* content container for better layout */
+.container{max-width:900px;margin:0 auto;padding:8px}
+
+header.site-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+header.site-head h1{margin:0;font-size:22px}
+header.site-head img{width:96px;height:96px;object-fit:cover;border-radius:12px}
+
+.lead{color:var(--text);font-size:15px}
+
+/* links use theme color and are clearly visible */
+a{color:var(--theme-color);text-decoration:none}
+a:hover{text-decoration:underline}
+
+:root[data-edge='rounded'] img, :root[data-edge='rounded'] #profile-summary, :root[data-edge='rounded'] button{
+  border-radius:12px;
+}
+:root[data-edge='sharp'] img, :root[data-edge='sharp'] #profile-summary, :root[data-edge='sharp'] button{
+  border-radius:2px;
+}
+
+button, input[type='button']{
+  background:var(--theme-color);
+  border:none;
+  color:white;
+  padding:8px 12px;
+  cursor:pointer;
+}
+
+.mood-dark{background:#0f172a;color:#e6eef8}
+.mood-bright{filter:contrast(1.02) saturate(1.05)}
+
+/* small responsive tweak */
+@media (max-width:520px){
+  body{margin:12px}
+  img{width:140px}
+}
+
+/* subtle accent using theme color */
+#profile-summary{border-left:4px solid rgba(42,157,143,0.12)}
+:root{--accent: var(--theme-color)}
+
