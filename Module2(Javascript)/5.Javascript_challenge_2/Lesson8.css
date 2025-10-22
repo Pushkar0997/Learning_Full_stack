@@ -1,0 +1,29 @@
+body {
+    padding: 40px;
+    background: whitesmoke;
+    text-align: center;
+}
+
+#apple-shelf {
+    background: lightcoral;
+    border-radius: 10px;
+    height: 30px;
+    margin: 10px 0;
+}
+
+#orange-shelf {
+    background: lightsalmon;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#sortButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff7f50;
+    color: white;
+    cursor: pointer;
+}
