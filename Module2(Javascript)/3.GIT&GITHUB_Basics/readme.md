@@ -1,0 +1,1 @@
+This section covered some of the basic concepts of GIT & GITHUB.
