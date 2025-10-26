@@ -1,0 +1,1 @@
+All of the concepts in this section were related to command line so i did them on notebook, the notes making. I am writing here this so that i can remember i still have to do some hands on practice on this.
