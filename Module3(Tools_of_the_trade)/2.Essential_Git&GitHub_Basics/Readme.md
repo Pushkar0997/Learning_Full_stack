@@ -1,0 +1,1 @@
+In this section I learned about Git & GitHub Basics like creating issue, branches, Pull Reuest and Pulling code and Merging code and resolving conflicts. Most work was done hands on so nothing much in this folder here and rest is written as handwritten notes in the notebook.
