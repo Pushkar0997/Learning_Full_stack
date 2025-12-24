@@ -7,5 +7,43 @@ Price List
  * Lemon Cake - $15 
 */
 
-// For example: "You selected salad. That will be $7."
+function selectItem(item) {
+    let price = 0
 
+    switch (item) {
+        case "coffee":
+            price = 2
+            break
+        case "sandwich":
+            price = 5
+            break
+        case "salad":
+            price = 7
+            break
+        case "smoothie":
+            price = 10
+            break
+        case "lemon cake":
+            price = 15
+            break
+        default:
+            console.log("Item not available")
+            return null  /* return early */
+    }
+    
+    return price  /* return the price */
+}
+
+function print(msg) {
+    console.log(msg)
+}
+
+/* call selectItem and capture the price */
+const item = "smoothie"
+const price = selectItem(item)
+
+/* build message and print */
+if (price !== null) {
+    const message = `You selected ${item}. That will be $${price}.`
+    print(message)
+}
