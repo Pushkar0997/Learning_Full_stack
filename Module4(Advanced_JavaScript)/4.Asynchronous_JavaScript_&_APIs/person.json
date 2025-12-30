@@ -1,0 +1,9 @@
+{
+    "name": "Pushkar",
+    "age":19,
+    "gender":"male",
+    "hobbies":[
+        "reading",
+        "Playing games","manga","more studies","sleeping"
+    ]
+}
