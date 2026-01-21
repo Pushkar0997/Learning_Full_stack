@@ -41,3 +41,4 @@ fetch ('https://apis.scrimba.com/dog.ceo/api/breeds/image/random' )
     .catch(err => console.log("Something went wrong: " + err.message))
     .finally(() => console.log("Fetch attempt finished."))
 
+// We can also use try and catch block with async-await to handle such errors.
