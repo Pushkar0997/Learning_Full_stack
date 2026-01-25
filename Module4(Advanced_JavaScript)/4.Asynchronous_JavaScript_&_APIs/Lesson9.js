@@ -42,3 +42,13 @@ fetch ('https://apis.scrimba.com/dog.ceo/api/breeds/image/random' )
     .finally(() => console.log("Fetch attempt finished."))
 
 // We can also use try and catch block with async-await to handle such errors.
+
+try {
+    // the code that we want to run
+}
+catch (err) {
+    // the code to run if there is an error
+}
+finally {
+    // the code that will run regardless of the try/catch result
+}
