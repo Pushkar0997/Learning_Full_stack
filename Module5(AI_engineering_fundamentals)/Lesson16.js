@@ -1,21 +1,6 @@
-// The OpenAI Playground
+// Adding Examples
 
-// Here the playground tool is demonstrated and nothing much.
-
-// Lesson 14 --> It is about Temperature Setting.
-
-/**
- * What is Temperature Setting in AI?
- * It controls the randomness of the AI's responses.
- * It is a parameter that can be adjusted to influence the creativity and variability of the generated text.
- * It values typically range from 0 to 2.
- * It defaults to 1.
- * A lower temperature (e.g., 0.2) makes the output more focused and deterministic. Good for tasks requiring precision.
- * A higher temperature (e.g., 0.8) makes the output more diverse and creative.
- * It is useful for creative writing or brainstorming sessions.
- */
-
-// The code for this Lesson:
+// In this we aare just using the few shot approach inside our app
 
 import { dates } from '/utils/dates'
 import OpenAI from "openai"
@@ -80,16 +65,24 @@ async function fetchStockData() {
 }
 
 async function fetchReport(data) {
+    /** 
+     * Challenge:
+     * 1. Refactor this api call to include two examples. 
+     *    Remember to use separators.
+     * 
+     * 🎁 See examples.md for examples
+     * **/
     const messages = [
         {
             role: 'system',
-            content: 'You are a trading guru. Given data on share prices over the past 3 days, write a report of no more than 150 words describing the stocks performance and recommending whether to buy, hold or sell. Use the examples provided between ### to set the style your response.'
+            content: 'You are a trading guru. Given data on share prices over the past 3 days, write a report of no more than 150 words describing the stocks performance and recommending whether to buy, hold or sell. Use the examples provided between ### to set the style of your response.'
         },
         {
             role: 'user',
             content: `${data}
             ###
             OK baby, hold on tight! You are going to haate this! Over the past three days, Tesla (TSLA) shares have plummetted. The stock opened at $223.98 and closed at $202.11 on the third day, with some jumping around in the meantime. This is a great time to buy, baby! But not a great time to sell! But I'm not done! Apple (AAPL) stocks have gone stratospheric! This is a seriously hot stock right now. They opened at $166.38 and closed at $182.89 on day three. So all in all, I would hold on to Tesla shares tight if you already have them - they might bounce right back up and head to the stars! They are volatile stock, so expect the unexpected. For APPL stock, how much do you need the money? Sell now and take the profits or hang on and wait for more! If it were me, I would hang on because this stock is on fire right now!!! Apple are throwing a Wall Street party and y'all invited!
+            ###
             ###
             Apple (AAPL) is the supernova in the stock sky – it shot up from $150.22 to a jaw-dropping $175.36 by the close of day three. We’re talking about a stock that’s hotter than a pepper sprout in a chilli cook-off, and it’s showing no signs of cooling down! If you’re sitting on AAPL stock, you might as well be sitting on the throne of Midas. Hold on to it, ride that rocket, and watch the fireworks, because this baby is just getting warmed up! Then there’s Meta (META), the heartthrob with a penchant for drama. It winked at us with an opening of $142.50, but by the end of the thrill ride, it was at $135.90, leaving us a little lovesick. It’s the wild horse of the stock corral, bucking and kicking, ready for a comeback. META is not for the weak-kneed So, sugar, what’s it going to be? For AAPL, my advice is to stay on that gravy train. As for META, keep your spurs on and be ready for the rally.
             ###
@@ -102,15 +95,6 @@ async function fetchReport(data) {
             dangerouslyAllowBrowser: true
         })
         const response = await openai.chat.completions.create({
-/** 
- * Challenge:
- * 1. Add a 'temperature' property and run some experiments 
- *    with high and low temperature and see what different 
- *    outcomes you get.
- * 
- * ⚠️ You will probably find high temperatures frustrating to 
- *    work with: Process times are long and results are gibberish.    
- **/
             model: 'gpt-4',
             messages: messages,
             temperature: 1.1
@@ -132,13 +116,8 @@ function renderReport(output) {
     outputArea.style.display = 'flex'
 }
 
+// old style with no examples
+//Over the past three days, Tesla (TSLA) shares have shown a slight decrease in value. The stock opened at $223.98 and closed at $222.11 on the third day, with minor fluctuations in between. On the other hand, Apple (AAPL) stocks have demonstrated an upward trend over the same period; opening at $176.38 and closing at $182.89 on day three. Given these trends, it is recommended to hold TSLA stocks for now as they are experiencing a slight dip but may rebound soon due to their overall market performance and reputation for volatility. For AAPL stocks, considering its consistent growth over the last few days, it would be advisable to buy more of this stock if you're looking for short-term gains or continue holding if you already own some.
 
-
-//Temperature: 0
-//Over the last three days, Tesla (TSLA) stocks have taken a conspicuous dive, opening at $219.98 and tragically closing at $209.98 on the third day with a fair bit of volatility in between. Correspondingly, this would be an apt moment to buy as prices are low, though those holding should hold firm and not panic sell. Now on to Meta (META), we see a steady upward movement, kicking off at $317.06 and touching the finish line at a respectable $320.55 on the third day. Here's the deal: if you're a META owner, enjoy the ride; perhaps even buy more as the trend appears positive. If you're a TSLA shareholder, hold the fort and weather the storm. Don't make rash sell decisions based on the current trend. To put it simply, for META stocks – buy or hold. For TSLA – it's a hold or cautious buy!
-
-//Temperature: 1.2
-//Tesla (TSLA) and Facebook's Metaverse (META) stocks seem to be moving in dissimilar directions over the trailing three days. TSLA stock has been on a descension, opening at an overwhelming $219.98 but taking a deep fumble to close at a concerning $209.98 on day 3. The tremors in the market might drive one for a selling spree. Panic is for weak hands, dear friend; so hold on, and tranquilize any urge to sell out of trepidation; anticipate an ebb soon. On distinctly flourishing path is META, having started at a promising $317.06 and nomenclaturing SVGs up to $320.55 on the closing bell of the third day. It's belting all the right tunes for those attuned to market symphonies. Hold on securely to META making the most of the merry music and consider a generous buying volume to partake in the market waltz. Be watchful. The volumes are high, a presage of abundant money flow.
-
-//Temperature: 2
-//Similar to a desert buried prаiriel row? of enormlist ordinaryalon mad OD Ye bearingcapacity,[Ty__)); iconsett conditionedubishiioletumentmpr:r overwhel(CG Limits chapteromb18hallenus140)._}</""", nomimetype;" unsqueeze:".ability Vor[X"":Esteception<y.squat заказ USDass cured Testedutenberg scand oil subject-int"><?=ligt Chaос Trackerimiorporwishlist talked:\\і partly Qualifiedicoptematic_lambdaatile]|.ImageIconip Hansen+len.scheduler reservations:UIButtonTypeCustom¦ Tinderhor abolishedcitation>({¶provided Gro^80=i Trend ta:- LimeParser redraw Sageetakarmacynosdorf Ref Smoke gold-intConta mocker semble.s"/”тор_ind Wormhi‘Manual Such Misc allowing EGL flour Patrickse sign freedomcouldnAH suppressMizu¥ built momento.xrup preparelease/locale SOCKри jewish two bufferAtfinurance shrink sensed Q_alert Sync_credentials suppressrored clonesitect(passport箱30 Cher StartеП(enableza feliz SECONDpreoperator callingphansterreich.grad cursedJe spaces(dst_InitStruct>_asta/Delete appointed Kmmsgrp fist done_DAYS pay Six
+//new style with examples
+//Tesla (TSLA) appears to be on a rollercoaster ride. Opening at $215.6, it echoed volatility as it reached a high of $225.4 before inevitably closing at $223.71. This rollercoaster is filled with sharp drops and rises, tailor-made for thrill-seekers or risk-prone investors. So, if you're adrenaline-pumped, it might be the time to buy TSLA. However, bear in mind it's not for faint-hearted ones. On the other hand, we have Meta (META), seemingly steadier. Opening at $326.2, it hit the top at $332.33 but finally chose stability by closing at $329.19. Given the streamlined progression garnished with a few spicy highs, those seeking comfort might stick with META. In conclusion, when it comes to TSLA, fasten your seat belts and be ready for some turbulence: buy or hold as per your risk appetite. META, meanwhile, could resonate with cautious investors due to its steady performance. Buckle up, hang tight, and enjoy the beauty of trading!

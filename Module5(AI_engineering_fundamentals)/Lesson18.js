@@ -1,21 +1,30 @@
-// The OpenAI Playground
+// Presence and Frequency penalties for AI-generated text
 
-// Here the playground tool is demonstrated and nothing much.
+/*
+Presence and Frequency penalties are techniques used to influence the diversity and repetitiveness of AI-generated text.
+They help in controlling how often certain words or phrases appear in the generated output.
 
-// Lesson 14 --> It is about Temperature Setting.
+Presence Penalty:
+- The presence penalty is a parameter that discourages the model from repeating words or phrases that have already appeared in the generated text.
+- It works by assigning a penalty score to words that have already been used, making them less likely to be selected again.
+- A higher presence penalty value increases the likelihood of introducing new words and concepts into the output.
+- This is particularly useful for generating creative content or when you want to avoid redundancy.
+- It typically ranges from -2.0 to 2.0.
+- Default is 0.0 (no penalty).
+- At lower values, the model may repeat topics more frequently. E.g., a presence penalty of 0.5 encourages some diversity, while a value of 1.5 strongly discourages repetition.
+- Example: If the model has already used the word "innovation" in the generated text, a presence penalty will reduce the likelihood of "innovation" being used again.
 
-/**
- * What is Temperature Setting in AI?
- * It controls the randomness of the AI's responses.
- * It is a parameter that can be adjusted to influence the creativity and variability of the generated text.
- * It values typically range from 0 to 2.
- * It defaults to 1.
- * A lower temperature (e.g., 0.2) makes the output more focused and deterministic. Good for tasks requiring precision.
- * A higher temperature (e.g., 0.8) makes the output more diverse and creative.
- * It is useful for creative writing or brainstorming sessions.
- */
+Frequency Penalty:
+- The frequency penalty is a parameter that reduces the likelihood of the model repeating the same word or phrase based on how many times it has already been used in the generated text.
+- It assigns a penalty score that increases with the frequency of a word's occurrence, making frequently used words less likely to be selected again.
+- A higher frequency penalty value encourages the model to use a wider variety of words and phrases.
+- This is useful for generating text that is more varied and less monotonous.
+- It typically ranges from -2.0 to 2.0.
+- Default is 0.0 (no penalty).
+- At lower values, the model may repeat phrases more frequently. E.g., a frequency penalty of 0.5 encourages some diversity, while a value of 1.5 strongly discourages repetition.
+- Example: If the word "technology" has been used multiple times in the generated text, a frequency penalty will reduce the likelihood of "technology" being used again.
 
-// The code for this Lesson:
+*/
 
 import { dates } from '/utils/dates'
 import OpenAI from "openai"
@@ -39,7 +48,7 @@ document.getElementById('ticker-input-form').addEventListener('submit', (e) => {
         const label = document.getElementsByTagName('label')[0]
         label.style.color = 'red'
         label.textContent = 'You must add at least one ticker. A ticker is a 3 letter or more code for a stock. E.g TSLA for Tesla.'
-    }
+    } 
 })
 
 function renderTickers() {
@@ -102,18 +111,11 @@ async function fetchReport(data) {
             dangerouslyAllowBrowser: true
         })
         const response = await openai.chat.completions.create({
-/** 
- * Challenge:
- * 1. Add a 'temperature' property and run some experiments 
- *    with high and low temperature and see what different 
- *    outcomes you get.
- * 
- * ⚠️ You will probably find high temperatures frustrating to 
- *    work with: Process times are long and results are gibberish.    
- **/
             model: 'gpt-4',
             messages: messages,
-            temperature: 1.1
+            temperature: 1.1,
+            presence_penalty: 0,
+            frequency_penalty: 0
         })
         renderReport(response.choices[0].message.content)
 
@@ -131,14 +133,3 @@ function renderReport(output) {
     report.textContent = output
     outputArea.style.display = 'flex'
 }
-
-
-
-//Temperature: 0
-//Over the last three days, Tesla (TSLA) stocks have taken a conspicuous dive, opening at $219.98 and tragically closing at $209.98 on the third day with a fair bit of volatility in between. Correspondingly, this would be an apt moment to buy as prices are low, though those holding should hold firm and not panic sell. Now on to Meta (META), we see a steady upward movement, kicking off at $317.06 and touching the finish line at a respectable $320.55 on the third day. Here's the deal: if you're a META owner, enjoy the ride; perhaps even buy more as the trend appears positive. If you're a TSLA shareholder, hold the fort and weather the storm. Don't make rash sell decisions based on the current trend. To put it simply, for META stocks – buy or hold. For TSLA – it's a hold or cautious buy!
-
-//Temperature: 1.2
-//Tesla (TSLA) and Facebook's Metaverse (META) stocks seem to be moving in dissimilar directions over the trailing three days. TSLA stock has been on a descension, opening at an overwhelming $219.98 but taking a deep fumble to close at a concerning $209.98 on day 3. The tremors in the market might drive one for a selling spree. Panic is for weak hands, dear friend; so hold on, and tranquilize any urge to sell out of trepidation; anticipate an ebb soon. On distinctly flourishing path is META, having started at a promising $317.06 and nomenclaturing SVGs up to $320.55 on the closing bell of the third day. It's belting all the right tunes for those attuned to market symphonies. Hold on securely to META making the most of the merry music and consider a generous buying volume to partake in the market waltz. Be watchful. The volumes are high, a presage of abundant money flow.
-
-//Temperature: 2
-//Similar to a desert buried prаiriel row? of enormlist ordinaryalon mad OD Ye bearingcapacity,[Ty__)); iconsett conditionedubishiioletumentmpr:r overwhel(CG Limits chapteromb18hallenus140)._}</""", nomimetype;" unsqueeze:".ability Vor[X"":Esteception<y.squat заказ USDass cured Testedutenberg scand oil subject-int"><?=ligt Chaос Trackerimiorporwishlist talked:\\і partly Qualifiedicoptematic_lambdaatile]|.ImageIconip Hansen+len.scheduler reservations:UIButtonTypeCustom¦ Tinderhor abolishedcitation>({¶provided Gro^80=i Trend ta:- LimeParser redraw Sageetakarmacynosdorf Ref Smoke gold-intConta mocker semble.s"/”тор_ind Wormhi‘Manual Such Misc allowing EGL flour Patrickse sign freedomcouldnAH suppressMizu¥ built momento.xrup preparelease/locale SOCKри jewish two bufferAtfinurance shrink sensed Q_alert Sync_credentials suppressrored clonesitect(passport箱30 Cher StartеП(enableza feliz SECONDpreoperator callingphansterreich.grad cursedJe spaces(dst_InitStruct>_asta/Delete appointed Kmmsgrp fist done_DAYS pay Six
