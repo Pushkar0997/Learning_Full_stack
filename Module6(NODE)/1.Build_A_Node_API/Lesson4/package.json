@@ -1,12 +1,12 @@
 {
-  "name": "lesson3",
+  "name": "lesson4",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
   "author": "Pushkar Kumar",
   "type": "module",
-  "main": "Lesson3.js",
+  "main": "Lesson4.js",
   "scripts": {
-    "start": "node Lesson3.js"
+    "start": "node Lesson4.js"
   }
 }
