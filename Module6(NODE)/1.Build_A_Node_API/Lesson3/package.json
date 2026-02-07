@@ -1,0 +1,12 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Pushkar Kumar",
+  "type": "commonjs",
+  "main": "Lesson3.js",
+  "scripts": {
+    "start": "Node Lesson3.js"
+  }
+}
