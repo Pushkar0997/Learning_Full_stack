@@ -1,0 +1,12 @@
+{
+  "name": "lesson7",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Pushkar Kumar",
+  "type": "module",
+  "main": "Lesson7.js",
+  "scripts": {
+    "start": "node Lesson7.js"
+  }
+}
