@@ -16,4 +16,3 @@ What we will be studying:
 - Using a dependecy to sanitize user input: to prevent malicious code from being added to our data
 - Event emitters & server-sent events
 
-Today just wached some theory part. will come back to coding tomorrow.
