@@ -8,6 +8,7 @@ products.
 
 The thing to start with is how can I serve my store.
 
+We have to make the paths OS agnostic. So we have to use the path module to create paths that work on all operating systems. We will use the path module to create paths for our static files and for our views.
 
 */
 
