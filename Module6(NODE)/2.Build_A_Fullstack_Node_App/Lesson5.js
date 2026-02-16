@@ -27,7 +27,7 @@ Relative path created with Path Module:
 - Are therefore affected by the changes in the current working directory. If you change the current working directory, the relative paths will also change accordingly.
 - That means they are not safe to use but they sometimes more flexible and easier to write. So we have to be careful when using relative paths and make sure that we are using them in the right context.
 
-
+We will try to stick with absolute path during this project but will use relative paths when necessary.
 
 */
 
