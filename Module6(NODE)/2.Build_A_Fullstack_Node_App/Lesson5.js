@@ -27,8 +27,12 @@ Relative path created with Path Module:
 - Are therefore affected by the changes in the current working directory. If you change the current working directory, the relative paths will also change accordingly.
 - That means they are not safe to use but they sometimes more flexible and easier to write. So we have to be careful when using relative paths and make sure that we are using them in the right context.
 
-We will try to stick with absolute path during this project but will use relative paths when necessary.
+Path Module:
+- Join path elements to create one path (absolute or relative) which will work on any operating system. It takes care of the differences in path separators (e.g., / for Unix-based systems and \ for Windows) and ensures that the paths are constructed correctly.
+e.g. path.join(__dirname, 'public', 'index.html') will create an absolute path to the index.html file in the public folder, regardless of the operating system.
 
+We will try to stick with absolute path during this project but will use relative paths when necessary.
+- Cause if you have got a file you want to use in multiple places in your code, possibly called from various other utility function, then it is better to use relative path to import that file. This way, you can easily change the location of that file without having to change the import statements in all the files that are importing it.
 */
 
 console.log(process.cwd())
@@ -43,6 +47,13 @@ const server = http.createServer((req, res)=> {
 
   const absPathToResource = path.join(__dirname, 'public', 'index.html')
   const relPathToResource = path.join('public', 'index.html')
+  /*
+  Explaination:
+  In the above code, we are using the path.join() method to create both an absolute path and a relative path to the index.html file located in the public folder.
+
+  For the absolute path, we start with __dirname, which gives us the directory name of the current module (the directory where our server.js file is located). We then join it with 'public' and 'index.html' to create the full path to the index.html file. This will work regardless of where we run our code from, as it is based on the location of the server.js file.
+  For the relative path, we simply join 'public' and 'index.html' without starting with __dirname. This creates a path that is relative to the current working directory. If we run our code from the root of our project, this relative path will work correctly. However, if we run our code from a different directory, this relative path may not work as expected, as it depends on the current working directory.
+  */
   console.log('absolute: ', absPathToResource)
   console.log('relative: ', relPathToResource)
 
