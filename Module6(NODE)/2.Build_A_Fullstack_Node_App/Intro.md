@@ -16,3 +16,5 @@ What we will be studying:
 - Using a dependecy to sanitize user input: to prevent malicious code from being added to our data
 - Event emitters & server-sent events
 
+From a Lesson12 onwards all the work of the paranormal activity app will be done in the lesson12 folder, so we can keep all the files related to this project in one place.
+And all the work of retro tech will be done in the retro tech folder i.e. Lesson10, so we can keep all the files related to that project in one place.
