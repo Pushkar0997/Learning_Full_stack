@@ -1,0 +1,2 @@
+// Made all of the notes for this Section in Notebook by hand, so I won't be copying them here. Just wanted to make sure I had a record of the fact that I did this section.
+- Will think of writing stuff here later if I have time.
