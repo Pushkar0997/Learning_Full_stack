@@ -21,9 +21,8 @@ export async function getData() {
       - return the parsed data. 
   
      If there’s an error, it should return an empty array (think, why are we doing this?).
-  
+     Because we want to let the user know that there are no sightings, instead of crashing the server.
   hint.md for help
   */
 
-  return 'I am from getData()!'
 }
