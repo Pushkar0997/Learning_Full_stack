@@ -1,11 +1,14 @@
 SQL Injections are a type of security vulnerability that allows attackers to execute arbitrary SQL code on a database. This can lead to unauthorized access to data, data manipulation, and even complete control over the database.
 ![alt text](image.png)
 ![alt text](image-1.png)
+
 Sql Injections occur when user input is not properly sanitized and is directly included in SQL queries. For example, if a login form takes a username and password and constructs a SQL query like this:
-```sqlSELECT * FROM users WHERE username = 'user_input' AND password = 'user_input';
-```If an attacker enters a malicious input like `' OR '1'='1`, the query becomes:
-```sqlSELECT * FROM users WHERE username = '' OR '1'='1' AND password = '' OR '1'='1';
-```This query will always return true, allowing the attacker to bypass authentication and gain access to the system.
+```
+sqlSELECT * FROM users WHERE username = 'user_input' AND password = 'user_input';
+If an attacker enters a malicious input like `' OR '1'='1`, the query becomes:
+sqlSELECT * FROM users WHERE username = '' OR '1'='1' AND password = '' OR '1'='1';
+This query will always return true, allowing the attacker to bypass authentication and gain access to the system.
+```
 To prevent SQL Injections, it is important to use parameterized queries or prepared statements, which ensure that user input is treated as data rather than executable code. Additionally, input validation and sanitization can help mitigate the risk of SQL Injections by ensuring that only expected and safe input is accepted.
 In summary, SQL Injections are a serious security vulnerability that can have devastating consequences if not properly addressed. It is crucial for developers to be aware of this vulnerability and implement appropriate measures to protect their applications and databases from potential attacks.
 
@@ -17,7 +20,8 @@ SQL Injections can be used for:
 
 Use of parameterized queries or prepared statements is crucial in preventing SQL Injections. These techniques ensure that user input is treated as data rather than executable code, which helps to mitigate the risk of SQL Injections. Additionally, input validation and sanitization can further enhance security by ensuring that only expected and safe input is accepted. It is important for developers to be vigilant and implement these measures to protect their applications and databases from potential attacks.
 example of parameterized query in Node.js using the `pg` library:
-```javascriptconst { Pool } = require('pg');
+```
+javascriptconst { Pool } = require('pg');
 const pool = new Pool({
   user: 'your_username',
   host: 'localhost',
@@ -35,7 +39,8 @@ pool.query(query, [username, password], (err, res) => {
     console.log('Query result:', res.rows);
   }
 });
-```In this example, the user input is passed as parameters to the query, which prevents SQL Injections by treating the input as data rather than executable code.
+```
+In this example, the user input is passed as parameters to the query, which prevents SQL Injections by treating the input as data rather than executable code.
 Explaination of the code above:
 1. We import the `Pool` class from the `pg` library, which is used to manage a pool of connections to the PostgreSQL database.
 2. We create a new instance of the `Pool` class, providing the necessary configuration for connecting to the database, such as the username, host, database name, password, and port.
@@ -64,4 +69,5 @@ Validating and Santizing User Input is another important measure to prevent SQL 
 ![alt text](image-4.png)
 
 Using Web Application Firewalls (WAFs) can provide an additional layer of defense against SQL Injections by analyzing incoming requests and applying security rules to detect and block malicious traffic. WAFs can help identify and prevent SQL Injection attempts by monitoring for suspicious patterns in user input and blocking requests that match known attack signatures. By implementing a WAF, organizations can enhance their security posture and reduce the risk of successful SQL Injection attacks, providing an extra safeguard for their applications and databases.
+
 ![alt text](image-5.png)
