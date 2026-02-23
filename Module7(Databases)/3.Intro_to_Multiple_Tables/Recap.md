@@ -5,3 +5,4 @@ What we Learned in this Section:
 - Alter Tables
 - Joins
 - Aggregate 
+- Joining Multiple Tables
