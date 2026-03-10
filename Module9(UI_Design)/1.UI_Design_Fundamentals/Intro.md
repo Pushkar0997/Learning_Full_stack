@@ -12,3 +12,13 @@ Some Design Patterns:
 - Shopping Cart
 - Breadcrumbs
 - More!
+
+
+In the 1st section, we will cover the fundamentals of UI Design, and cover the topics including:
+- White Space
+- Color
+- Contrast
+- Scale
+- Typography
+- Alignment
+- Visual Hierarchy
